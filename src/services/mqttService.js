@@ -49,10 +49,43 @@ export const startMQTT = () => {
                 message.toString()
             )
 
-            console.log('Received:', data)
+            console.log(
+                `Message received on ${topic}`
+            )
 
-            const sensorData =
-                new SensorData(data)
+            if (
+                typeof data.lux !== 'number'
+            ) {
+
+                throw new Error(
+                    'Invalid lux value'
+                )
+            }
+
+            if (
+                !data.rgb ||
+                typeof data.rgb.r !== 'number' ||
+                typeof data.rgb.g !== 'number' ||
+                typeof data.rgb.b !== 'number'
+            ) {
+
+                throw new Error(
+                    'Invalid RGB values'
+                )
+            }
+
+            const sensorData = new SensorData({
+
+                deviceTimestamp: data.timestamp,
+
+                serverTimestamp: new Date(),
+
+                lux: data.lux,
+
+                cct: data.cct,
+
+                rgb: data.rgb
+            })
 
             await sensorData.save()
 
@@ -64,7 +97,7 @@ export const startMQTT = () => {
 
             console.error(
                 'MQTT message error:',
-                error
+                error.message
             )
         }
     })

@@ -2,9 +2,14 @@ import mongoose from 'mongoose'
 
 const sensorDataSchema = new mongoose.Schema({
 
-    timestamp: {
+    deviceTimestamp: {
         type: String,
         required: true
+    },
+
+    serverTimestamp: {
+        type: Date,
+        default: Date.now
     },
 
     lux: {
