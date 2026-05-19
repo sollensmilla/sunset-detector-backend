@@ -1,21 +1,31 @@
-import SensorData from '../models/SensorData.js'
+import SensorData
+    from '../models/SensorData.js'
+
+import { formatSensorData }
+    from '../utils/dataFormatter.js'
+
 
 export class DataController {
 
-    async getHistoricalData(req, res) {
+    async getHistoricalData(
+        req,
+        res
+    ) {
 
         try {
 
             const thirtyMinutesAgo =
                 new Date(
-                    Date.now() - 30 * 60 * 1000
+                    Date.now()
+                    - 30 * 60 * 1000
                 )
 
             const data =
                 await SensorData.find({
 
                     serverTimestamp: {
-                        $gte: thirtyMinutesAgo
+                        $gte:
+                            thirtyMinutesAgo
                     }
 
                 })
@@ -24,7 +34,14 @@ export class DataController {
                     })
                     .limit(1000)
 
-            res.json(data)
+            const formattedData =
+                data.map(
+                    formatSensorData
+                )
+
+            res.json(
+                formattedData
+            )
 
         } catch (error) {
 
