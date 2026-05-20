@@ -1,7 +1,7 @@
 import express from 'express'
 
 import { DataController }
-    from '../controllers/dataController.js'
+    from '../controllers/DataController.js'
 
 const router = express.Router()
 
