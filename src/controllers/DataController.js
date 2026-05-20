@@ -54,4 +54,42 @@ export class DataController {
             })
         }
     }
+
+    async getDataById(
+        req,
+        res
+    ) {
+
+        try {
+
+            const data =
+                await SensorData.findById(
+                    req.params.id
+                )
+
+            if (!data) {
+
+                return res.status(404).json({
+
+                    error:
+                        'Data not found'
+                })
+            }
+
+            const formattedData =
+                formatSensorData(data)
+
+            res.json(formattedData)
+
+        } catch (error) {
+
+            console.error(error)
+
+            res.status(500).json({
+
+                error:
+                    'Failed to fetch data'
+            })
+        }
+    }
 }

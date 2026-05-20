@@ -1,7 +1,7 @@
 import mqtt from 'mqtt'
 
 import SensorData from '../models/SensorData.js'
-
+import { isSunset } from '../utils/sunsetDetection.js'
 import { MQTT_CONFIG } from '../config/mqtt.js'
 
 

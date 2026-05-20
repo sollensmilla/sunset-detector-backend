@@ -15,4 +15,11 @@ router.get(
         .bind(controller)
 )
 
+router.get(
+    '/data/:id',
+    controller
+        .getDataById
+        .bind(controller)
+)
+
 export default router
