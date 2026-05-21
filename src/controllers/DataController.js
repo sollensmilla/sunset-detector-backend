@@ -95,6 +95,12 @@ export class DataController {
         }
     }
 
+    /**
+     * Gets sensor data by ID
+     * @param {Object} req - Express request object
+     * @param {Object} res - Express response object
+     * @returns {Object} - Formatted sensor data
+     */
     async getDataById(
         req,
         res
