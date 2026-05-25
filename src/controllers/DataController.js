@@ -4,7 +4,7 @@ import SensorData
 import { formatSensorData }
     from '../utils/dataFormatter.js'
 
-const HOURS_BACK = 24
+const HOURS_BACK = 48
 
 const SAMPLE_RATE = 30
 
