@@ -54,8 +54,12 @@ export class DataController {
 
         try {
 
+            const hours =
+                Number(req.query.hours)
+                || HOURS_BACK
+
             const fromDate =
-                this.getFromDate()
+                this.getFromDate(hours)
 
             const data =
                 await SensorData.find({
