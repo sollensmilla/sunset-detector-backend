@@ -4,7 +4,11 @@ import { createSkyColor }
 import { isSunset }
     from './sunsetDetection.js'
 
-
+/**
+ * Formats sensor data for API response
+ * @param {Object} entry - The sensor data entry
+ * @returns {Object} - The formatted sensor data
+ */
 export const formatSensorData =
     (entry) => {
 

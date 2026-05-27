@@ -4,7 +4,9 @@ import SensorData from '../models/SensorData.js'
 import { isSunset } from '../utils/sunsetDetection.js'
 import { MQTT_CONFIG } from '../config/mqtt.js'
 
-
+/**
+ * Starts the MQTT client, connects to the broker, subscribes to the topic, and handles incoming messages
+ */
 export const startMQTT = () => {
 
     const client = mqtt.connect(
