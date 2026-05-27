@@ -76,7 +76,7 @@ export const startMQTT = () => {
 
             const sensorData = new SensorData({
 
-                deviceTimestamp: data.timestamp,
+                deviceTimestamp: new Date(data.timestamp),
 
                 serverTimestamp: new Date(),
 

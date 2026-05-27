@@ -64,14 +64,14 @@ export class DataController {
             const data =
                 await SensorData.find({
 
-                    serverTimestamp: {
+                    deviceTimestamp: {
                         $gte:
                             fromDate
                     }
 
                 })
                     .sort({
-                        serverTimestamp: 1
+                        deviceTimestamp: 1
                     })
                     .limit(MAX_RESULTS)
 

@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 const sensorDataSchema = new mongoose.Schema({
 
     deviceTimestamp: {
-        type: String,
+        type: Date,
         required: true
     },
 
