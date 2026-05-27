@@ -11,7 +11,7 @@ export const formatSensorData =
         return {
 
             timestamp:
-                entry.serverTimestamp,
+                entry.deviceTimestamp,
 
             lux:
                 entry.lux,
