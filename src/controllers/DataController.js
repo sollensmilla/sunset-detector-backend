@@ -8,7 +8,7 @@ const HOURS_BACK = 48
 
 const SAMPLE_RATE = 30
 
-const MAX_RESULTS = 50000
+const MAX_RESULTS = 200000
 
 /**
  * Controller for handling data-related API requests
