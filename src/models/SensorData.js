@@ -33,6 +33,11 @@ const sensorDataSchema = new mongoose.Schema({
     timestamps: true
 })
 
+sensorDataSchema.index(
+    { serverTimestamp: 1 },
+    { expireAfterSeconds: 50 * 60 * 60 }
+)
+
 export default mongoose.model(
     'SensorData',
     sensorDataSchema
